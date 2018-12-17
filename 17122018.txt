@@ -28,11 +28,12 @@ selects only one of the grouped pattern.
 
 # Regular Expressions functions in Javascript
 a. RegExp.test() -- returns true/false
-b. RegExp.exec() -- returns an array of information of match. The format of the
-return value is as follows: [<full_match>, <index of the first match group>,
-<index of the subsequent match group>, <input>]
+
+b. RegExp.exec() -- returns an array of information of match. The format of the return value is as follows: [<full_match>, <index of the first match group>, <index of the subsequent match group>, <input>]
 
 Look further into this because sometimes it only returns an array with 1
-element. For example when doing /\d+/.exec('one two 100'), the return value is
-['100'].
+element. For example when doing /\d+/.exec('one two 100'), the return value is ['100'].
 
+c. String.replace(<RegExp>, <replacement>) -- returns a string withthe matched elements replaced with the provided value. 
+
+When using replace we can refer to the matched elements using $<number>. For example /(\w)(\w)/, as there are 2 matching groups in this RegExp, the first match will be $1 and the second one will be $2.
