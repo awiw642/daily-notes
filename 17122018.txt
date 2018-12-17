@@ -1,0 +1,38 @@
+# Create a new Regular Expressions
+a. /<regular_expressions>/
+b. new RegExp('string')
+
+# Check for sets of characters
+a. We check against a set of characters using the '[]'. This means check if string
+matches any of the characters provided in the square bracket.
+
+b. Some other things we can use are the special characters, such as \d(digit),
+\w(word), \s(whitespace). We can also check for the negation of these with
+capital letter. An example for this is: \W(non-word)
+
+c. There are also some other characters we can use to help us using Regular
+Expression easier, such as:
+    c:1. + (matches one or more any characters)
+    c:2. * (matches zero or more any characters)
+    c:3. ? (matches zero or one time any characters)
+
+d. Specifying the amount of times a character or a set of characters is also
+possible by using {}. An example of this is /d{4}/ which means character 'd' has
+to occur 4 times.
+
+e. Grouping characters is possible by using () characters. An example of this
+is: /(dare){4}/ which means to match string 'dare' that occur 4 times.
+
+f. Check for choices of patterns can be done by doing (|). The pipe character
+selects only one of the grouped pattern.
+
+# Regular Expressions functions in Javascript
+a. RegExp.test() -- returns true/false
+b. RegExp.exec() -- returns an array of information of match. The format of the
+return value is as follows: [<full_match>, <index of the first match group>,
+<index of the subsequent match group>, <input>]
+
+Look further into this because sometimes it only returns an array with 1
+element. For example when doing /\d+/.exec('one two 100'), the return value is
+['100'].
+
