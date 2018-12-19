@@ -1,0 +1,36 @@
+Today I am still learning about regular expression in Javascript.
+
+A few things I learned about it today:
+
+1. Greedy RegExp
+Repetition operators like +, *, ?, and {} always try to match to 
+the entire string and backtrack from there.
+Sometimes this can be a problem especially when we are trying to 
+match 2 similar patterns more than once.
+
+For example: '1 /* a */+/* b */ 1'. Let's say we want to remove
+the comment from this code (/* */). Doing a normal repetition
+match here cause us to delete the + character that we don't
+actually want to remove.
+
+The solution for this is to add ? character to make the repetition
+character become non-greedy.
+
+
+2. lastIndex
+There is a property called lastIndex in RegExp in Javascript that
+decides the offset when using the exec method. This property only
+works when the global(g) or sticky(y) argument exists on the RegExp.
+I am not sure if it is being used for the other methods as well.
+
+
+3. sticky argument
+In ES6 you can provide a (y) argument which makes lastIndex
+property available.
+This argument will automatically removes global argument if both
+are provided.
+The behaviour you will see in this case is that exec only runs
+from the lastIndex property value index, on one possible RegExp
+match. The method will not run globally with this argument.
+
+
