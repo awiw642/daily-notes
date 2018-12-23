@@ -1,0 +1,53 @@
+Iterators and generators
+
+Iterators is basically an easier way for us to loop through an 
+object without being very imperative on how we want to loop through
+that object.
+
+
+The way an iterator is created is with Symbol.iterator.
+An example for this is as follow:
+
+const numbers = [1, 2, 3, 4, 5];
+const numbersIterator = numbers[Symbol.iterator]();
+The line above basically created an iterator for you and the value
+can be accessed with numbersIterator.next();
+The return value depends on the current position of your iterator.
+For example when you call this for the first time, will return you
+the value '1'
+
+Calling it the second time, will get you the value '2'
+
+
+The new for loop function in ES6 is basically creating a new iterator for you.
+
+const numbers = [1, 2, 3, 4, 5];
+for (number of numbers) {}
+The code above is the same as the manual declaration of iterator
+with numbers[Symbol.iterator]
+
+
+On the other hand generators, which sometimes called iterator factories also
+works in a very similar fashion.
+
+function* numbers() {
+    const numbers = [1, 2, 3, 4, 5];
+    for (let y = 0; y < numbers.length; y++) {
+       yield numbers[y]; 
+    }
+}
+
+const numbersIterator = numbers();
+numbersIterator.next();
+
+* declaring a function with a star (*) at the end, means create a generator.
+* yield is similar to return, but basically saying remember where I am for future returns
+
+If you want to loop over this, you can also do the following:
+for (const number of numbers()) {}
+Iterators returned by the generator have a Symbol.iterator method that return itself.
+iter[Symbol.iterator]() = iter
+
+
+question that I need to test myself:
+what happen if you pass an iterator created manually to a for of loop?
